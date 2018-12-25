@@ -72,7 +72,7 @@ get_plot <- function(outcomeName, label, filename) {
     theme(legend.position = "none") +
     facet_wrap(~sex) +
     ylab("Minutes (total in day)") +
-    xlab("Date\n\nSource: American Time Use Survey. Estimates weighted.") +
+    xlab("Date\n\nSource: American Time Use Survey. Estimates weighted.\nSampling frame is civilian non-institutional\npopulation ages 15+ in occupied U.S. households.") +
     scale_x_date(breaks = as.Date(c("2018-12-10","2018-12-25","2019-1-10")),
                  date_labels = "%b %e") +
     ggtitle(bquote("Time spent"~bold(.(label)))) +
@@ -82,7 +82,8 @@ get_plot <- function(outcomeName, label, filename) {
           legend.position = "none",
           panel.grid.minor = element_blank(),
           panel.spacing = unit(1.5, "lines"),
-          plot.title = element_text(hjust = .5)) +
+          plot.title = element_text(hjust = .5),
+          plot.margin = unit(c(5.5,11,5.5,5.5),"pt")) +
     ggsave(filename, height = 3.5, width = 5)
 }
 
